@@ -20,9 +20,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={doggo} className="App-logo" alt="logo" />
-      </header>
+      <img src={doggo} className="App-logo" alt="logo" />
     </div>
   );
 }
