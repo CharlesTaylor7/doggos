@@ -5,23 +5,15 @@ import { useFrames } from '../hooks/useFrames';
 import { doggo$ } from '../sources/giphy';
 
 export const App = () => {
-  const { frame, forward, backward, append } = useFrames();
+  const { frame, forward, append } = useFrames();
 
   useEffect(() => {
     doggo$.subscribe(doggo => append(doggo));
   }, [doggo$]);
 
   useEffect(() => {
-    console.log(frame);
-  }, [frame]);
-
-  useEffect(() => {
-    document.onkeydown = (e) => {
-      if (e.key === 'ArrowLeft') backward();
-      else if (e.key === 'ArrowRight') forward();
-      // else append(e.key);
-    }
-  }, [forward, backward]);
+    setTimeout(() => forward(), 2000);
+  }, [frame])
 
   return (
     <div className="App">
