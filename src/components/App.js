@@ -17,7 +17,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <img src={frame} className="App-logo" alt="logo" />
+      <img src={frame} className="doggo" alt="doggo" />
     </div>
   );
 }

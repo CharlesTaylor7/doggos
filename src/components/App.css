@@ -4,11 +4,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.App-logo {
+.doggo {
   animation: App-logo-spin infinite 8s linear;
   height: 40vh;
   pointer-events: none;
