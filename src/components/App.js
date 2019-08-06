@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import doggo from '../assets/doggo.jpg'
 import './App.css';
-import { useFrames } from '../hooks/useFrames';
-import { doggo$ } from '../sources/giphy';
+import * as Rx from 'rxjs/operators';
+import * as Observable from 'rxjs';
 
-export const App = () => {
-  const { frame, forward, append } = useFrames();
-
-  useEffect(() => {
-    doggo$.subscribe(doggo => append(doggo));
-  }, [doggo$]);
+export const App = ({ animalKingdom$ }) => {
+  const [ frame, setFrame ] = useState('');
 
   useEffect(() => {
-    setTimeout(() => forward(), 2000);
-  }, [frame])
+    const subscription = Observable.zip(animalKingdom$, Observable.timer(2000, 2000))
+      .subscribe(([animal,]) => setFrame(animal))
+
+    return () => subscription.unsubscribe();
+  }, [animalKingdom$]);
 
   return (
     <div className="App">

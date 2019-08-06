@@ -5,12 +5,12 @@
 }
 
 .doggo {
-  animation: App-logo-spin infinite 8s linear;
+  animation: bounce infinite 8s linear;
   height: 40vh;
   pointer-events: none;
 }
 
-@keyframes App-logo-spin {
+@keyframes bounce {
   0% {
     transform: translate(calc((100vw - 40vh) / 2))
   }
