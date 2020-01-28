@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import * as Observable from 'rxjs';
+import { animalKingdom$ } from '../sources/giphy';
 
-export const App = ({ animalKingdom$ }) => {
+export const App = () => {
   const [ frame, setFrame ] = useState('');
 
   useEffect(() => {
