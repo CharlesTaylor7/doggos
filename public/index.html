@@ -48,10 +48,10 @@
         init
           fetch https://api.giphy.com/v1/gifs/search?api_key=DmPaOTNJv7KLUao5cqSClP4lZjp1m3n8&q=doggo&limit=100&offset=0&rating=G&lang=en 
           as json then put the result's data into gifs
-          put gifs's length into @l
+          put gifs's length into gifs_length
           put 0 into i 
           repeat forever
-            put (((gifs[i mod @l])'s images)'s original)'s url into my @src
+            put (((gifs[i mod gifs_length])'s images)'s original)'s url into my @src
 
             increment i
             wait 2s
