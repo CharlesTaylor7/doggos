@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Doggos!</title>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="shortcut icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <link rel="manifest" href="./manifest.json" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>Doggos!</title>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <style>
+      body {
+        margin: 0;
+        background-color: #282c34;
+        min-height: 100vh;
+        color: white;
+      }
+
+      .doggo {
+        animation: bounce infinite 8s linear;
+        height: 40vh;
+        pointer-events: none;
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translate(calc((100vw - 40vh) / 2))
+        }
+        25% {
+          transform: translate(calc(100vw - 40vh), 30vh)
+        }
+        50% {
+          transform: translate(calc((100vw - 40vh) / 2), 60vh)
+        }
+        75% {
+          transform: translate(0, 30vh)
+        }
+        100%{
+          transform: translate(calc((100vw - 40vh) / 2))
+        }
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <img 
+      class="doggo" 
+      alt="doggo" 
+      _="
+        init
+          fetch https://api.giphy.com/v1/gifs/search?api_key=DmPaOTNJv7KLUao5cqSClP4lZjp1m3n8&q=doggo&limit=100&offset=0&rating=G&lang=en 
+          as json then put the result's data into gifs
+          put 0 into i 
+          repeat forever
+            put (((gifs[i])'s images)'s original)'s url into my @src
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+            increment i
+            wait 2s
+          end
+    ">
+    </img>
   </body>
 </html>
