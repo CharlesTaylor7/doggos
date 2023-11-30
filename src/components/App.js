@@ -8,7 +8,7 @@ export const App = () => {
 
   useEffect(() => {
     const subscription = Observable
-      .zip(animalKingdom$, Observable.timer(2000, 2000))
+      .zip(animalKingdom$, Observable.timer(0, 2000))
       .subscribe(([animal,]) => setFrame(animal))
 
     return () => subscription.unsubscribe();
