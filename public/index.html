@@ -6,6 +6,8 @@
     <link rel="shortcut icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <!-- local debuggin: <script src="./hyperscript.js"></script>
+    -->
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <style>
       body {
@@ -41,6 +43,7 @@
     </style>
   </head>
   <body>
+    <!-- https://hyperscript.org/docs/ -->
     <img 
       class="doggo" 
       alt="doggo" 
@@ -52,11 +55,12 @@
           put 0 into i 
           repeat forever
             put (((gifs[i mod gifs_length])'s images)'s original)'s url into my @src
-
+            put (((gifs[(i+ 1) mod gifs_length])'s images)'s original)'s url into #prefetch's @href 
             increment i
             wait 2s
           end
     ">
     </img>
+    <link id="prefetch" rel="prefetch" type="image/gif" />
   </body>
 </html>
