@@ -4,6 +4,6 @@ This project is built with [hyperscript]
 
 ## Development
 ```sh
-npx serve public
+npx serve .
 ```
 
