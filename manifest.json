@@ -1,0 +1,11 @@
+{
+  "name": "Doggos",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "pwa-icon.svg",
+      "sizes": "192x192"
+    }
+  ]
+}
