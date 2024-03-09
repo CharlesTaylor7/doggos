@@ -1,6 +1,6 @@
 {
   "name": "Doggos",
-  "start_url": "/",
+  "start_url": "/doggos",
   "display": "standalone",
   "icons": [
     {
