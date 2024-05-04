@@ -147,6 +147,7 @@
 		var url = goatcounter.url(vars)
 		if (!url)
 			return warn('not counting because path callback returned null')
+    console.log("goat counter", url);
 		navigator.sendBeacon(url)
 	}
 
